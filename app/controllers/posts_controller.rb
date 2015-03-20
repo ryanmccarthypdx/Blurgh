@@ -14,17 +14,22 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
+      flash[:notice] = "Success!"
       redirect_to root_path
     else
+      flash[:alert] = "Oops! Something went wrong!"
       render :new
     end
+  end
+
+  def edit
+    @post = Post.find(params[:id])
   end
 
 private
 
   def post_params
-      params.require(:post)
-            .permit(:title, :text)
+      params.require(:post).permit(:title, :text)
     end
 
 end
