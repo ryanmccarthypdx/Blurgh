@@ -1,0 +1,12 @@
+<h1>Welcome to Blurgh!</h1>
+
+<% if @posts.any? %>
+  <h4>Here are your posts:</h4>
+  <ul>
+    <% @posts.each do |post| %>
+      <li><%= link_to post.title, post_path(post) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h4>You have no posts yet!</h4>
+<% end %>
