@@ -13,6 +13,6 @@ describe "the edit post process" do
     click_on "Edit"
     fill_in "Title", :with => "Tuna Salad"
     click_on "Update Post"
-    expect(page).to have_content "Tuna Salad"
+    expect(page).to have_content "Post Updated!"
   end
 end

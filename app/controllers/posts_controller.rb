@@ -26,16 +26,28 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      flash[:notice] = "Post Updated!"
+      redirect_to root_path
+    else
+      flash[:alert] = "Something went wrong!"
+      render :edit
+    end
+  end
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to root_path
   end
 
+
 private
 
   def post_params
-      params.require(:post).permit(:title, :text)
-    end
+    params.require(:post).permit(:title, :text)
+  end
 
 end
