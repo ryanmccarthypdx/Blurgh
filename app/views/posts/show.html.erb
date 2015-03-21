@@ -5,7 +5,13 @@
   <%= render 'comments/form' %>
   <ul>
   <% @comments.each do |comment| %>
-    <li><p><em>Comment posted at <%= comment.created_at %>:</em></p>
+    <li><p>
+      <em>Comment posted at <%= comment.created_at %>:</em> |
+      <%= link_to "Edit", edit_post_comment_path(@post, comment) %> |
+      <%= link_to "Delete", post_comment_path(@post, comment),
+                        :data => {:confirm => "Are you sure?",
+                        :method => "delete"} %>
+    </p>
     <p><%= comment.text %></p></li>
   <% end %>
   </ul>
