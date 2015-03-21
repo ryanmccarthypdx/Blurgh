@@ -40,8 +40,13 @@ class CommentsController < ApplicationController
   def destroy
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
-    @comment.destroy
-    redirect_to post_path(@post)
+    if @comment.destroy
+      flash[:notice] = "See you in hell, comment!"
+      redirect_to post_path(@post)
+    else
+      flash[:alert] = "Something went wrong!"
+      redirect_to post_path(@post)
+    end
   end
 
 private
