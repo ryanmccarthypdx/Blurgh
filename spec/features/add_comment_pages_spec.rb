@@ -8,6 +8,24 @@ describe "the create comment process" do
     expect(page).to have_content "new comment"
   end
 
+  it "successfully saves comments" do
+    Post.create(:title => "Egg Salad", :text => "chicken salad")
+    visit root_path
+    click_on "Egg Salad"
+    fill_in "Text", :with => "I like ham salad better"
+    click_on "Create Comment"
+    expect(page).to have_content "Comment Saved!"
+  end
+
+  it "displays the comment on the posts#show page after the comment is submitted" do
+    Post.create(:title => "Egg Salad", :text => "chicken salad")
+    visit root_path
+    click_on "Egg Salad"
+    fill_in "Text", :with => "I like ham salad better"
+    click_on "Create Comment"
+    expect(page).to have_content "I like ham"
+  end
+
 
 
 end
