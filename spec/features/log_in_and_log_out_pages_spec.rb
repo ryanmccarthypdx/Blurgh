@@ -19,6 +19,15 @@ describe "the login and logout process" do
     expect(page).to have_content "Something went wrong!"
   end
 
+  it "logs in if you name and password are correct" do
+    FactoryGirl.create(:user)
+    visit root_path
+    fill_in "Name", :with => "Ryan"
+    fill_in "Password", :with => "test"
+    click_on "Log in"
+    expect(page).to have_content "Login successful!"
+  end
+
 
 
 end
