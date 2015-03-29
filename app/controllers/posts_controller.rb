@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "Success!"
-      redirect_to root_path
+      redirect_to posts_path
     else
       flash[:alert] = "Oops! Something went wrong!"
       render :new

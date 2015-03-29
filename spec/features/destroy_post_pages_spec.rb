@@ -3,8 +3,8 @@ require 'rails_helper'
 describe "the destroy post process" do
   it "destroys the post" do
     post = Post.create(:title => "Egg Salad", :text => "chicken salad")
-    visit root_path
+    visit posts_path
     click_on "Delete"
-    expect(page).to have_no_content "Egg Salad" 
+    expect(page).to have_no_content "Egg Salad"
   end
 end
