@@ -1,28 +1,22 @@
-== README
+# Blurg
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a basic multi-user blogging app with Bcrypt user authentication.
 
-Things you may want to cover:
+### Set up
+Install and run bundle before setup.  From there on, setup follows a basic rails application pattern.
 
-* Ruby version
+### Bug Reports
+No known bugs
 
-* System dependencies
+### Author
+Ryan McCarthy (ryanmccarthypdx@gmail.com)
 
-* Configuration
+#### License
 
-* Database creation
+Copyright (C) 2015 Ryan McCarthy
 
-* Database initialization
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-* How to run the test suite
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/.
