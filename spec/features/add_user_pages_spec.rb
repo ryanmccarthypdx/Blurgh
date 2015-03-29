@@ -6,6 +6,12 @@ describe "the create user process" do
     expect(page).to have_content "Create an Account"
   end
 
+  it "displays the form when you click on 'create an account'" do
+    visit root_path
+    click_on "Create an Account"
+    expect(page).to have_content "Password confirmation"
+  end
+
 
 
 
