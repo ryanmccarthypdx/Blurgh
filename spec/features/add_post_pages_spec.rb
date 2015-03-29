@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe "The create post process" do
+  let(:user) { FactoryGirl.create(:user) }
+
+  before do
+    sign_in(user)
+  end
+
   it "routes to the new post page correctly" do
     visit posts_path
     click_on "Create a new post"

@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe "the edit post process" do
+  let(:user) { FactoryGirl.create(:user) }
+
+  before do
+    sign_in(user)
+  end
+
   it "brings up a prepopulated form when the edit button is clicked on the homepage" do
     post = Post.create(:title => "Egg Salad", :text => "chicken salad")
     visit posts_path

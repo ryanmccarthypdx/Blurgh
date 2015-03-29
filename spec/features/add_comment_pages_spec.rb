@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe "the create comment process" do
+  let(:user) { FactoryGirl.create(:user) }
+
+  before do
+    sign_in(user)
+  end
+
   it "displays the comment form on the posts#show page" do
     Post.create(:title => "Egg Salad", :text => "chicken salad")
     visit posts_path
