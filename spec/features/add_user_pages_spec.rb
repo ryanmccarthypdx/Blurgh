@@ -17,6 +17,7 @@ describe "the create user process" do
     fill_in "Name", :with => "Ryan"
     fill_in "Password", :with => "test"
     fill_in "Password confirmation", :with => "nottest"
+    click_on "Create User"
     expect(page).to have_content "Password confirmation"
   end
 
@@ -26,7 +27,17 @@ describe "the create user process" do
     fill_in "Name", :with => "Ryan"
     fill_in "Password", :with => "test"
     fill_in "Password confirmation", :with => "test"
+    click_on "Create User"
     expect(page).to have_content "Password confirmation"
+  end
+
+  it "works if you do everything right" do
+    visit new_user_path
+    fill_in "Name", :with => "RyanTMcCarthy"
+    fill_in "Password", :with => "password"
+    fill_in "Password confirmation", :with => "password"
+    click_on "Create User"
+    expect(page).to have_content "Plers lergern:"
   end
 
 
