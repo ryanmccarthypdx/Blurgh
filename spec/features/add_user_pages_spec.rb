@@ -12,6 +12,23 @@ describe "the create user process" do
     expect(page).to have_content "Password confirmation"
   end
 
+  it "throws an error if your password confirmation is wrong" do
+    visit new_user_path
+    fill_in "Name", :with => "Ryan"
+    fill_in "Password", :with => "test"
+    fill_in "Password confirmation", :with => "nottest"
+    expect(page).to have_content "Password confirmation"
+  end
+
+  it "throws an error if your name is already taken" do
+    FactoryGirl.create(:user)
+    visit new_user_path
+    fill_in "Name", :with => "Ryan"
+    fill_in "Password", :with => "test"
+    fill_in "Password confirmation", :with => "test"
+    expect(page).to have_content "Password confirmation"
+  end
+
 
 
 
