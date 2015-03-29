@@ -3,13 +3,17 @@
 <h4><%= link_to "Create a new post", new_post_path %></h4>
 
 <% if @posts.any? %>
-  <h4>Here are your posts:</h4>
+  <h4>Here are the posts:</h4>
   <ul>
     <% @posts.each do |post| %>
-      <li><%= link_to post.title, post_path(post) %> |
-      <%= link_to "Edit", edit_post_path(post) %> |
-      <%= link_to "Delete", post_path(post), :data => {:confirm => "Are you sure?",
-      :method => "delete"} %></li>
+      <li><%= link_to post.title, post_path(post) %>
+      <% if current_user.id == post.user_id %>
+        |
+        <%= link_to "Edit", edit_post_path(post) %> |
+        <%= link_to "Delete", post_path(post), :data => {:confirm => "Are you sure?",
+        :method => "delete"} %>
+      <% end %>
+        </li>
     <% end %>
   </ul>
 <% else %>
