@@ -1,8 +1,7 @@
 require 'rails_helper'
 
-describe Post do
-
+describe User do
   it { should have_many :comments }
-  it { should belong_to :user }
+  it { should have_many :posts }
 
 end
