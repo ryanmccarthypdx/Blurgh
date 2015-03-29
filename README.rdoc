@@ -2,6 +2,10 @@
 
 This is a basic multi-user blogging app with Bcrypt user authentication.
 
+#Heroku link
+
+http://blurgh.herokuapp.com/
+
 ### Set up
 Install and run bundle before setup.  From there on, setup follows a basic rails application pattern.
 
