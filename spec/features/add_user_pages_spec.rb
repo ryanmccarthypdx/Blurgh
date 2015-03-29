@@ -40,7 +40,4 @@ describe "the create user process" do
     expect(page).to have_content "Plers lergern:"
   end
 
-
-
-
 end
