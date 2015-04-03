@@ -15,7 +15,7 @@ describe "the create user process" do
   it "throws an error if your password confirmation is wrong" do
     visit new_user_path
     fill_in "Name", :with => "Ryan"
-    fill_in "Phone", :with => "5551112222"
+    fill_in "Phone", :with => "15005550006"
     fill_in "Password", :with => "test"
     fill_in "Password confirmation", :with => "nottest"
     click_on "Create User"
@@ -26,7 +26,7 @@ describe "the create user process" do
     FactoryGirl.create(:user)
     visit new_user_path
     fill_in "Name", :with => "Ryan"
-    fill_in "Phone", :with => "5551112222"
+    fill_in "Phone", :with => "15005550006"
     fill_in "Password", :with => "test"
     fill_in "Password confirmation", :with => "test"
     click_on "Create User"
@@ -36,7 +36,7 @@ describe "the create user process" do
   it "works if you do everything right" do
     visit new_user_path
     fill_in "Name", :with => "RyanTMcCarthy"
-    fill_in "Phone", :with => "5551112222"
+    fill_in "Phone", :with => "15005550006"
     fill_in "Password", :with => "password"
     fill_in "Password confirmation", :with => "password"
     click_on "Create User"
