@@ -1,11 +1,13 @@
-<li><p>
-  <em>Comment posted at <%= comment.created_at %> by <%= comment.user.name %>:</em>
-    <% if current_user.id == comment.user_id %>
-      |
-      <%= link_to "Edit", edit_post_comment_path(@post, comment) %> |
-      <%= link_to "Delete", post_comment_path(@post, comment), :data => {:confirm => "Are you sure?",
-      :method => "delete"} %>
-    <% end %>
-      </li>
-</p>
-<p><%= comment.text %></p></li>
+<div id="shown_comment_<%= comment.id %>">
+  <li><p>
+    <em>Comment posted at <%= comment.created_at %> by <%= comment.user.name %>:</em>
+      <% if current_user.id == comment.user_id %>
+        |
+        <%= link_to "Edit", edit_post_comment_path(@post, comment), remote: true %> |
+        <%= link_to "Delete", post_comment_path(@post, comment), :data => {:confirm => "Are you sure?",
+        :method => "delete"} %>
+      <% end %>
+        </li>
+  </p>
+  <p><%= comment.text %></p></li>
+</div>

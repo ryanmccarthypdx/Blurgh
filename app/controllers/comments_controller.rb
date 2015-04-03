@@ -9,7 +9,6 @@ class CommentsController < ApplicationController
     end
   end
 
-
   def create
     @comment = Comment.new(comment_params)
     @comment.user = current_user
@@ -30,7 +29,10 @@ class CommentsController < ApplicationController
   def edit
     @comment = Comment.find(params[:id])
     @post = Post.find(params[:post_id])
-    render '_edit_form'
+    respond_to do |format|
+      format.html { render '_edit_form' }
+      format.js
+    end    
   end
 
   def update
