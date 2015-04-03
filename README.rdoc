@@ -9,6 +9,12 @@ http://blurgh.herokuapp.com/
 ### Set up
 Install and run bundle before setup.  From there on, setup follows a basic rails application pattern.
 
+You will need to set up ENV variables with the follwing info:
+
+TWILIO_ACCOUNT_SID
+TWILIO_AUTH_TOKEN
+USER_NUMBER
+
 ### Bug Reports
 No known bugs
 
