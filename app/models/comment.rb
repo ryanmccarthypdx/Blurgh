@@ -2,12 +2,12 @@ class Comment < ActiveRecord::Base
   belongs_to :post
   belongs_to :user
 
-#   before_save :send_sms
-#
-# private
-#
-#   def send_sms
-#     self.post.user
+  before_save :send_sms
+
+private
+
+  def send_sms
+    self.post.user
 
 
 
