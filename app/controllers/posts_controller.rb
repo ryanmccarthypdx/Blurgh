@@ -33,7 +33,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.update(post_params)
       flash[:notice] = "Post Updated!"
-      redirect_to root_path
+      redirect_to posts_path
     else
       flash[:alert] = "Something went wrong!"
       render :edit
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to root_path
+    redirect_to posts_path
   end
 
 
