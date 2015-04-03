@@ -17,7 +17,10 @@ class CommentsController < ApplicationController
     @post.comments << @comment
     if @comment.save
       flash[:notice] = "Comment Saved!"
-      redirect_to post_path(@post)
+      respond_to do |format|
+        format.html { redirect_to post_path(@post) }
+        format.js
+      end
     else
       flash[:alert] = "Something went wrong!"
       render :new

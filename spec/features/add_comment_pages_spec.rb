@@ -32,24 +32,36 @@ describe "the create comment process" do
     expect(page).to have_content "Text"
     expect(page).to have_no_content "Add a new comment"
   end
-  # 
-  # it "successfully saves comments" do
-  #   Post.create(:title => "Egg Salad", :text => "chicken salad", :user_id => user.id)
-  #   visit posts_path
-  #   click_on "Egg Salad"
-  #   fill_in "Text", :with => "I like ham salad better"
-  #   click_on "Create Comment"
-  #   expect(page).to have_content "Comment Saved!"
-  # end
-  #
-  # it "displays the comment on the posts#show page after the comment is submitted" do
-  #   Post.create(:title => "Egg Salad", :text => "chicken salad", :user_id => user.id)
-  #   visit posts_path
-  #   click_on "Egg Salad"
-  #   fill_in "Text", :with => "I like ham salad better"
-  #   click_on "Create Comment"
-  #   expect(page).to have_content "I like ham"
-  # end
+
+  it "successfully saves comments(HTML version)" do
+    Post.create(:title => "Egg Salad", :text => "chicken salad", :user_id => user.id)
+    visit posts_path
+    click_on "Egg Salad"
+    click_on "Add a new comment"
+    fill_in "Text", :with => "I like ham salad better"
+    click_on "Create Comment"
+    expect(page).to have_content "Comment Saved!"
+  end
+
+  it "displays the comment on the posts#show page after the comment is submitted (HTML version)" do
+    Post.create(:title => "Egg Salad", :text => "chicken salad", :user_id => user.id)
+    visit posts_path
+    click_on "Egg Salad"
+    click_on "Add a new comment"
+    fill_in "Text", :with => "I like ham salad better"
+    click_on "Create Comment"
+    expect(page).to have_content "I like ham"
+  end
+
+  it "displays the comment on the posts#show page after the comment is submitted", js: true do
+    Post.create(:title => "Egg Salad", :text => "chicken salad", :user_id => user.id)
+    visit posts_path
+    click_on "Egg Salad"
+    click_on "Add a new comment"
+    fill_in "Text", :with => "I like ham salad better"
+    click_on "Create Comment"
+    expect(page).to have_content "I like ham"
+  end
 
 
 
