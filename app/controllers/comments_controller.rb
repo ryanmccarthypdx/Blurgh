@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html { render '_edit_form' }
       format.js
-    end    
+    end
   end
 
   def update
@@ -40,7 +40,10 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     if @comment.update(comment_params)
       flash[:notice] = "Comment Updated!"
-      redirect_to post_path(@post)
+      respond_to do |format|
+        format.html { redirect_to post_path(@post) }
+        format.js
+      end
     else
       flash[:alert] = "Something went wrong!"
       render :edit
